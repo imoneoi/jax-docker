@@ -13,9 +13,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PyTorch, torchvision, torchaudio, and other requirements
-COPY requirements.txt /tmp/requirements.torch_extensions
+COPY requirements.txt /tmp
 RUN pip3 install --no-cache-dir "jax[cuda12]" \
-    && pip3 install --no-cache-dir -r /tmp/requirements/packages.txt \
+    && pip3 install --no-cache-dir -r /tmp/requirements.txt \
     && rm -f /tmp/requirements.txt
 
 # Set the default command to bash
