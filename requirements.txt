@@ -1,0 +1,9 @@
+flax
+optax
+einops
+tqdm
+coolname
+pydantic
+wandb
+omegaconf
+hydra-core
