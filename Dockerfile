@@ -3,6 +3,7 @@ FROM python:3.12-slim-bookworm
 # Install necessary packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     bash \
+    procps \
     wget \
     curl \
     git \
@@ -12,7 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-# Install PyTorch, torchvision, torchaudio, and other requirements
+# Install JAX, and other requirements
 COPY requirements.txt /tmp
 RUN pip3 install --no-cache-dir "jax[cuda12]" \
     && pip3 install --no-cache-dir -r /tmp/requirements.txt \
